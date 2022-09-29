@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "RN_Food_Delivery.app"
-               BlueprintName = "RN_Food_Delivery"
-               ReferencedContainer = "container:RN_Food_Delivery.xcodeproj">
+               BuildableName = "FoodDelivery.app"
+               BlueprintName = "FoodDelivery"
+               ReferencedContainer = "container:FoodDelivery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "RN_Food_DeliveryTests.xctest"
-               BlueprintName = "RN_Food_DeliveryTests"
-               ReferencedContainer = "container:RN_Food_Delivery.xcodeproj">
+               BuildableName = "FoodDeliveryTests.xctest"
+               BlueprintName = "FoodDeliveryTests"
+               ReferencedContainer = "container:FoodDelivery.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RN_Food_Delivery.app"
-            BlueprintName = "RN_Food_Delivery"
-            ReferencedContainer = "container:RN_Food_Delivery.xcodeproj">
+            BuildableName = "FoodDelivery.app"
+            BlueprintName = "FoodDelivery"
+            ReferencedContainer = "container:FoodDelivery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RN_Food_Delivery.app"
-            BlueprintName = "RN_Food_Delivery"
-            ReferencedContainer = "container:RN_Food_Delivery.xcodeproj">
+            BuildableName = "FoodDelivery.app"
+            BlueprintName = "FoodDelivery"
+            ReferencedContainer = "container:FoodDelivery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
