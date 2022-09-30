@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -18,7 +18,7 @@ const VertificationScreen = ({
     const [otp, setOtp] = useState({ 1: '', 2: '', 3: '', 4: '' })
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="dark-content"
                 backgroundColor={Colors.DEFAULT_WHITE}
@@ -96,7 +96,7 @@ const VertificationScreen = ({
                 }}>
                 <Text style={styles.signinButtonText}>Xác nhận</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.POPPINS_MEDIUM,
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
-        textAlign: 'center'
+        textAlign: 'center',
+        flex: 1
     },
     title: {
         fontSize: 20,

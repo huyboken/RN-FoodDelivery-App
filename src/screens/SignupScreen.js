@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -103,7 +103,7 @@ const SignupScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="dark-content"
                 backgroundColor={Colors.DEFAULT_WHITE}
@@ -119,7 +119,7 @@ const SignupScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>Đăng kí</Text>
             </View>
             <Text style={styles.title}>Tạo tài khoản</Text>
-            <Text style={styles.content}>Nhập Tên, Email và mật khẩu của bạn</Text>
+            <Text style={styles.content}>Nhập tên, email và mật khẩu của bạn</Text>
             <View style={inputStyle(usernameState)}>
                 <View style={styles.inputSubContainer}>
                     <Feather
@@ -213,7 +213,7 @@ const SignupScreen = ({ navigation }) => {
                     <Text style={styles.socialSignupButtonText}>Kết nối với Google</Text>
                 </View>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -235,7 +235,8 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.POPPINS_MEDIUM,
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
-        textAlign: 'center'
+        textAlign: 'center',
+        flex: 1
     },
     title: {
         fontSize: 20,

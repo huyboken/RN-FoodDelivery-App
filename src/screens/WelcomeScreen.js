@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { FlatList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { WelcomeCard, Separator } from '../components';
 import { Colors, Fonts, General } from '../contants';
 import { Display } from '../untils';
@@ -38,7 +38,7 @@ const WelcomeScreen = ({ navigation }) => {
         });
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="dark-content"
                 backgroundColor={Colors.DEFAULT_WHITE}
@@ -89,7 +89,7 @@ const WelcomeScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             )}
-        </View>
+        </SafeAreaView>
     );
 };
 

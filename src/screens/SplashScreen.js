@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { Colors, Fonts, Images } from '../contants';
 import { Display } from '../untils';
 
@@ -10,14 +10,14 @@ const SplashScreen = ({ navigation }) => {
         }, 3000);
     }, []);
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="light-content"
                 backgroundColor={Colors.DEFAULT_GREEN}
                 translucent />
             <Image source={Images.PLATE} resizeMode="contain" style={styles.image} />
             <Text style={styles.titleText}>Food Delivery</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -10,7 +10,7 @@ import LottieView from 'lottie-react-native';
 import { connect } from 'react-redux';
 import GeneralAction from '../actions/GeneralAction';
 
-const SigninScreen = ({ navigation,setToken }) => {
+const SigninScreen = ({ navigation, setToken }) => {
     const [isPasswordShow, setPasswordShow] = useState(false)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -33,7 +33,7 @@ const SigninScreen = ({ navigation,setToken }) => {
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="dark-content"
                 backgroundColor={Colors.DEFAULT_WHITE}
@@ -134,7 +134,7 @@ const SigninScreen = ({ navigation,setToken }) => {
                     <Text style={styles.socialSigninButtonText}>Kết nối với Google</Text>
                 </View>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -162,7 +162,8 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.POPPINS_MEDIUM,
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
-        textAlign: 'center'
+        textAlign: 'center',
+        flex: 1
     },
     title: {
         fontSize: 20,
