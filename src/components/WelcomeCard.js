@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Fonts, Colors, Images } from '../contants';
-import { Display } from '../untils';
+import { Display } from '../utils';
 
-const WelcomeCard = ({title, image, content}) => {
+const WelcomeCard = ({ title, image, content }) => {
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={Images[image]} resizeMode="contain" />
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 22,
         fontFamily: Fonts.POPPINS_BOLD,
-      
+
     },
     contentText: {
         fontSize: 18,

@@ -14,7 +14,7 @@ import { FlagItem, Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Colors, CountryCode, Fonts, Images } from '../contants';
-import Display from '../untils/Display';
+import Display from '../utils/Display';
 import { StaticImageService } from '../services';
 
 const getDropdownStyle = y => ({ ...styles.countryDropdown, top: y + 60 });

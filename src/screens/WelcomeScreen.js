@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { WelcomeCard, Separator } from '../components';
 import { Colors, Fonts, General } from '../contants';
-import { Display } from '../untils';
+import { Display } from '../utils';
 
 const pageStyle = isActive =>
     isActive

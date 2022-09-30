@@ -13,7 +13,7 @@ import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { Colors, Fonts, Images } from '../contants';
-import Display from '../untils/Display';
+import Display from '../utils/Display';
 import { useNavigation } from '@react-navigation/native';
 
 const ForgotPasswordScreen = () => {

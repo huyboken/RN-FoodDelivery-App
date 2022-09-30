@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Colors, Fonts, Images } from '../contants';
-import Display from '../untils/Display';
+import Display from '../utils/Display';
 import { AuthencationService } from '../services';
 import LottieView from 'lottie-react-native';
 
