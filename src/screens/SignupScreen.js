@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+    Image,
+    SafeAreaView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
+} from 'react-native';
 import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -15,18 +24,18 @@ const inputStyle = state => {
             return {
                 ...styles.inputContainer,
                 borderWidth: 1,
-                borderColor: Colors.SECONDARY_GREEN
-            }
+                borderColor: Colors.SECONDARY_GREEN,
+            };
         case 'invalid':
             return {
                 ...styles.inputContainer,
                 borderWidth: 1,
-                borderColor: Colors.DEFAULT_RED
-            }
+                borderColor: Colors.DEFAULT_RED,
+            };
         default:
-            return styles.inputContainer
+            return styles.inputContainer;
     }
-}
+};
 
 const showMarker = state => {
     switch (state) {
@@ -38,7 +47,7 @@ const showMarker = state => {
                     size={18}
                     style={{ marginLeft: 5 }}
                 />
-            )
+            );
         case 'invalid':
             return (
                 <AntDesign
@@ -47,12 +56,11 @@ const showMarker = state => {
                     size={18}
                     style={{ marginLeft: 5 }}
                 />
-            )
+            );
         default:
-            return null
+            return null;
     }
-}
-
+};
 
 const SignupScreen = ({ navigation }) => {
     const [isPasswordShow, setPasswordShow] = useState(false);
@@ -70,16 +78,16 @@ const SignupScreen = ({ navigation }) => {
         let user = {
             username,
             email,
-            password
-        }
+            password,
+        };
         console.log(user);
-        setIsLoading(true)
+        setIsLoading(true);
         AuthencationService.register(user).then(response => {
-            setIsLoading(false)
+            setIsLoading(false);
             console.log(response);
             if (!response?.status) {
-                setErrorMessage(response?.message)
-            };
+                setErrorMessage(response?.message);
+            }
         });
         // navigation.navigate('RegisterPhone')
     };
@@ -88,19 +96,25 @@ const SignupScreen = ({ navigation }) => {
         if (value?.length > 0) {
             AuthencationService.checkUserExist(type, value).then(response => {
                 if (response?.status) {
-                    type === 'email' && emailErrorMessage ? setEmailErrorMessage('') : null;
-                    type === 'username' && usernameErrorMessage ? setUsernameErrorMessage('') : null;
+                    type === 'email' && emailErrorMessage
+                        ? setEmailErrorMessage('')
+                        : null;
+                    type === 'username' && usernameErrorMessage
+                        ? setUsernameErrorMessage('')
+                        : null;
                     type === 'email' ? setEmailState('valid') : null;
                     type === 'username' ? setUsernameState('valid') : null;
                 } else {
                     type === 'email' ? setEmailErrorMessage(response?.message) : null;
-                    type === 'username' ? setUsernameErrorMessage(response?.message) : null;
+                    type === 'username'
+                        ? setUsernameErrorMessage(response?.message)
+                        : null;
                     type === 'email' ? setEmailState('invalid') : null;
                     type === 'username' ? setUsernameState('invalid') : null;
                 }
-            })
+            });
         }
-    }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -133,8 +147,10 @@ const SignupScreen = ({ navigation }) => {
                         placeholderTextColor={Colors.DEFAULT_GREY}
                         selectionColor={Colors.DEFAULT_GREY}
                         style={styles.inputText}
-                        onChangeText={(text) => setUsername(text)}
-                        onEndEditing={({ nativeEvent: { text } }) => checkUserExist('username', text)}
+                        onChangeText={text => setUsername(text)}
+                        onEndEditing={({ nativeEvent: { text } }) =>
+                            checkUserExist('username', text)
+                        }
                     />
                     {showMarker(usernameState)}
                 </View>
@@ -153,8 +169,10 @@ const SignupScreen = ({ navigation }) => {
                         placeholderTextColor={Colors.DEFAULT_GREY}
                         selectionColor={Colors.DEFAULT_GREY}
                         style={styles.inputText}
-                        onChangeText={(text) => setEmail(text)}
-                        onEndEditing={({ nativeEvent: { text } }) => checkUserExist('email', text)}
+                        onChangeText={text => setEmail(text)}
+                        onEndEditing={({ nativeEvent: { text } }) =>
+                            checkUserExist('email', text)
+                        }
                     />
                     {showMarker(emailState)}
                 </View>
@@ -174,10 +192,10 @@ const SignupScreen = ({ navigation }) => {
                         placeholderTextColor={Colors.DEFAULT_GREY}
                         selectionColor={Colors.DEFAULT_GREY}
                         style={styles.inputText}
-                        onChangeText={(text) => setPassword(text)}
+                        onChangeText={text => setPassword(text)}
                     />
                     <Feather
-                        name={isPasswordShow ? "eye" : "eye-off"}
+                        name={isPasswordShow ? 'eye' : 'eye-off'}
                         size={22}
                         color={Colors.DEFAULT_GREY}
                         style={{ marginRight: 10 }}
@@ -186,15 +204,12 @@ const SignupScreen = ({ navigation }) => {
                 </View>
             </View>
             <Text style={styles.errorMessage}>{errorMessage}</Text>
-            <TouchableOpacity
-                style={styles.signupButton}
-                onPress={() => register()}>
+            <TouchableOpacity style={styles.signupButton} onPress={() => register()}>
                 {isLoading ? (
                     <LottieView source={Images.LOADING} autoPlay />
                 ) : (
                     <Text style={styles.signupButtonText}>Tạo tài khoản</Text>
                 )}
-
             </TouchableOpacity>
             <Text style={styles.orText}>HOẶC</Text>
             <TouchableOpacity style={styles.facebookButton}>
@@ -202,7 +217,9 @@ const SignupScreen = ({ navigation }) => {
                     <View style={styles.signupButtonLogoContainer}>
                         <Image source={Images.FACEBOOK} style={styles.signupButtonLogo} />
                     </View>
-                    <Text style={styles.socialSignupButtonText}>Kết nối với Facebook</Text>
+                    <Text style={styles.socialSignupButtonText}>
+                        Kết nối với Facebook
+                    </Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.googleButton}>
@@ -214,21 +231,21 @@ const SignupScreen = ({ navigation }) => {
                 </View>
             </TouchableOpacity>
         </SafeAreaView>
-    )
-}
+    );
+};
 
-export default SignupScreen
+export default SignupScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.DEFAULT_WHITE
+        backgroundColor: Colors.DEFAULT_WHITE,
     },
     headerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingVertical: 10,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     headerTitle: {
         fontSize: 20,
@@ -236,14 +253,14 @@ const styles = StyleSheet.create({
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
         textAlign: 'center',
-        flex: 1
+        paddingRight: 20,
     },
     title: {
         fontSize: 20,
         fontFamily: Fonts.POPPINS_MEDIUM,
         lineHeight: 20 * 1.4,
         marginTop: 50,
-        marginHorizontal: 20
+        marginHorizontal: 20,
     },
     content: {
         fontSize: 20,
@@ -259,11 +276,11 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 0.5,
         borderColor: Colors.LIGHT_GREY2,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     inputSubContainer: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     inputText: {
         fontSize: 18,
@@ -271,7 +288,7 @@ const styles = StyleSheet.create({
         padding: 0,
         height: Display.setHeight(6),
         color: Colors.DEFAULT_BLACK,
-        flex: 1
+        flex: 1,
     },
     signupButton: {
         backgroundColor: Colors.DEFAULT_GREEN,
@@ -286,7 +303,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 18 * 1.4,
         color: Colors.DEFAULT_WHITE,
-        fontFamily: Fonts.POPPINS_MEDIUM
+        fontFamily: Fonts.POPPINS_MEDIUM,
     },
     orText: {
         fontSize: 15,
@@ -294,7 +311,7 @@ const styles = StyleSheet.create({
         color: Colors.DEFAULT_BLACK,
         fontFamily: Fonts.POPPINS_MEDIUM,
         alignSelf: 'center',
-        marginTop: 20
+        marginTop: 20,
     },
     facebookButton: {
         backgroundColor: Colors.FABEBOOK_BLUE,
@@ -303,7 +320,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginVertical: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     googleButton: {
         backgroundColor: Colors.GOOGLE_BLUE,
@@ -311,30 +328,30 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         borderRadius: 8,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     signupButtonLogo: {
         height: 18,
-        width: 18
+        width: 18,
     },
     signupButtonLogoContainer: {
         backgroundColor: Colors.DEFAULT_WHITE,
         padding: 2,
         borderRadius: 3,
         position: 'absolute',
-        left: 25
+        left: 25,
     },
     socialButtonContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%'
+        width: '100%',
     },
     socialSignupButtonText: {
         color: Colors.DEFAULT_WHITE,
         fontSize: 13,
         lineHeight: 13 * 1.4,
-        fontFamily: Fonts.POPPINS_MEDIUM
+        fontFamily: Fonts.POPPINS_MEDIUM,
     },
     errorMessage: {
         fontSize: 10,
@@ -342,6 +359,6 @@ const styles = StyleSheet.create({
         color: Colors.DEFAULT_RED,
         fontFamily: Fonts.POPPINS_MEDIUM,
         marginHorizontal: 20,
-        marginTop: 5
-    }
+        marginTop: 5,
+    },
 });

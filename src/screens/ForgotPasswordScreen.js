@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-    Image,
     SafeAreaView,
     StatusBar,
     StyleSheet,
@@ -12,7 +11,7 @@ import {
 import { Separator, ToggleButton } from '../components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-import { Colors, Fonts, Images } from '../contants';
+import { Colors, Fonts } from '../contants';
 import Display from '../utils/Display';
 import { useNavigation } from '@react-navigation/native';
 
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
         textAlign: 'center',
-        flex: 1
+        paddingRight: 20
     },
     title: {
         fontSize: 20,

@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { ApiContants } from '../contants';
-
+import { getToken } from '../Store';
+import { authHeader } from '../utils/Generator';
 
 const AuthRequest = axios.create({
     baseURL: ApiContants.BACKEND_API.BASE_API_URL,
 });
 
-const register = async (user) => {
+const register = async user => {
     if (!user?.username || !user?.email || !user?.password) {
-        return { status: false, message: "Vui lòng điền vào tất cả các trường" };
+        return { status: false, message: 'Vui lòng điền vào tất cả các trường' };
     }
     try {
         let requestBody = {
@@ -19,19 +20,19 @@ const register = async (user) => {
 
         let registerResponse = await AuthRequest.post(
             ApiContants.BACKEND_API.REGISTER,
-            requestBody
+            requestBody,
         );
         console.log(registerResponse?.data);
-        return registerResponse?.data
+        return registerResponse?.data;
     } catch (error) {
         console.log(error);
-        return { status: false, message: "Oops! Đã xảy ra sự cố" };
+        return { status: false, message: 'Oops! Đã xảy ra sự cố' };
     }
 };
 
-const login = async (user) => {
+const login = async user => {
     if (!user?.username || !user?.password) {
-        return { status: false, message: "Vui lòng điền vào tất cả các trường" };
+        return { status: false, message: 'Vui lòng điền vào tất cả các trường' };
     }
     try {
         let requestBody = {
@@ -41,32 +42,51 @@ const login = async (user) => {
 
         let loginResponse = await AuthRequest.post(
             ApiContants.BACKEND_API.LOGIN,
-            requestBody
+            requestBody,
         );
         console.log(loginResponse?.data);
-        return loginResponse?.data
+        return loginResponse?.data;
     } catch (error) {
         console.log(error);
-        return { status: false, message: "Oops! Đã xảy ra sự cố" };
+        return { status: false, message: 'Oops! Đã xảy ra sự cố' };
     }
 };
 
 const checkUserExist = async (type, value) => {
-
     try {
-        let params = { [type]: value }
-
+        let params = { [type]: value };
 
         let userCheckResponse = await AuthRequest.get(
             ApiContants.BACKEND_API.USER_EXIST,
-            { params }
+            { params },
         );
-        console.log(userCheckResponse?.data);
-        return userCheckResponse?.data
+        return userCheckResponse?.data;
     } catch (error) {
         console.log(error);
-        return { status: false, message: "Oops! Đã xảy ra sự cố" };
+        return { status: false, message: 'Oops! Đã xảy ra sự cố' };
     }
 };
 
-export default { register, login, checkUserExist }
+const refreshToken = async () => {
+    try {
+        let tokenResponse = await AuthRequest.get(
+            ApiContants.BACKEND_API.REFRESH_TOKEN,
+            { headers: authHeader(getToken()) },
+        );
+        if (tokenResponse.status === 200) {
+            return {
+                status: true,
+                data: tokenResponse?.data
+            }
+        } else {
+            return {
+                status: false
+            }
+        }
+    } catch (error) {
+        console.log(error);
+        return { status: false, message: 'Oops! Đã xảy ra sự cố' };
+    }
+};
+
+export default { register, login, checkUserExist, refreshToken };

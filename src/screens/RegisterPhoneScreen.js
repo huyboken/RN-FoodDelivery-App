@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         lineHeight: 20 * 1.4,
         width: Display.setWidth(80),
         textAlign: 'center',
-        flex: 1,
+        paddingRight: 20,
     },
     title: {
         fontSize: 20,
