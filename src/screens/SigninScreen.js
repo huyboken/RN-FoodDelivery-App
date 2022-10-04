@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { Colors, Fonts, Images } from '../contants';
 import Display from '../utils/Display';
-import { AuthencationService, StorageService } from '../services';
+import { AuthenticationService, StorageService } from '../services';
 import LottieView from 'lottie-react-native';
 import GeneralAction from '../actions/GeneralAction';
 import { useDispatch } from 'react-redux';
@@ -34,10 +34,8 @@ const SigninScreen = ({ navigation }) => {
             username,
             password,
         };
-        AuthencationService.login(user).then(response => {
+        AuthenticationService.login(user).then(response => {
             setIsLoading(false);
-            // setToken(response?.data);
-            // console.log(response);
             if (response?.status) {
                 StorageService.setToken(response?.data).then(() => {
                     dispatch(GeneralAction.setToken(response?.data));

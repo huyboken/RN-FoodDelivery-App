@@ -1,5 +1,6 @@
 import StaticImageService from "./StaticImageService";
-import AuthencationService from "./AuthencationService";
+import AuthenticationService from "./AuthenticationService";
 import StorageService from "./StorageService";
+import RestaurantService from "./RestaurantService";
 
-export { StaticImageService, AuthencationService, StorageService };
+export { StaticImageService, AuthenticationService, StorageService, RestaurantService };

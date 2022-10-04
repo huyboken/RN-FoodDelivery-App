@@ -19,13 +19,13 @@ const getUserData = async () => {
         } else {
             return {
                 status: false,
-                message: 'dữ liệu người dùng không được tìm thấy',
+                message: 'Dữ liệu người dùng không được tìm thấy',
             };
         }
     } catch (error) {
         return {
             status: false,
-            message: 'dữ liệu người dùng không được tìm thấy',
+            message: 'Dữ liệu người dùng không được tìm thấy',
         };
     }
 };

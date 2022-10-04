@@ -15,7 +15,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Colors, Fonts, Images } from '../contants';
 import Display from '../utils/Display';
-import { AuthencationService } from '../services';
+import { AuthenticationService } from '../services';
 import LottieView from 'lottie-react-native';
 
 const inputStyle = state => {
@@ -82,7 +82,7 @@ const SignupScreen = ({ navigation }) => {
         };
         console.log(user);
         setIsLoading(true);
-        AuthencationService.register(user).then(response => {
+        AuthenticationService.register(user).then(response => {
             setIsLoading(false);
             console.log(response);
             if (!response?.status) {
@@ -94,7 +94,7 @@ const SignupScreen = ({ navigation }) => {
 
     const checkUserExist = async (type, value) => {
         if (value?.length > 0) {
-            AuthencationService.checkUserExist(type, value).then(response => {
+            AuthenticationService.checkUserExist(type, value).then(response => {
                 if (response?.status) {
                     type === 'email' && emailErrorMessage
                         ? setEmailErrorMessage('')
