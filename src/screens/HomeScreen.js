@@ -14,16 +14,14 @@ import {
     SafeAreaProvider,
     useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import { CategoryMenuItem, Separator } from '../components';
+import { CategoryMenuItem, Separator, RestaurantCard, RestaurantMediumCard } from '../components';
 import { Colors, Fonts, Mock } from '../contants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import RestaurantCard from '../components/RestaurantCard';
 import { useNavigation } from '@react-navigation/native';
 import { RestaurantService } from '../services';
 import { Display } from '../utils';
-import RestaurantMediumCard from '../components/RestaurantMediumCard';
 
 const sortStyle = isActive =>
     isActive
@@ -275,6 +273,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 5,
+        marginTop: Platform.OS === 'android' && 15,
         marginHorizontal: 20,
     },
     listHeaderTitle: {
@@ -294,8 +293,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         elevation: 1,
         alignItems: 'center',
-        color: Colors.DEFAULT_WHITE,
+        backgroundColor: Colors.DEFAULT_WHITE,
         marginTop: 8,
+
+        shadowColor: Colors.DEFAULT_GREY,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowOffset: { width: 3, height: 3 },
     },
     sortListItemText: {
         color: Colors.DEFAULT_BLACK,

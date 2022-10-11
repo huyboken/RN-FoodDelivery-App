@@ -1,12 +1,12 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Colors, Fonts } from '../contants';
+import { Colors, Fonts, Images } from '../contants';
 import { StaticImageService } from '../services';
 import { Display } from '../utils';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const RestaurantMediumCard = ({ images: { logo }, name, distance, time }) => {
+const RestaurantMediumCard = ({ images: { logo }, name, distance, time, tags }) => {
     return (
         <View style={styles.container}>
             <View>
@@ -24,23 +24,50 @@ const RestaurantMediumCard = ({ images: { logo }, name, distance, time }) => {
                         <Text style={styles.reviewsText}>({233})</Text>
                     </View>
                 </View>
-                <View style={styles.rowAndCenter}>
-                    <View style={styles.timeAndDistanceContainer}>
+                <Text numberOfLines={1} style={styles.tagsText}>
+                    {tags?.join(' • ')}
+                </Text>
+                <View style={styles.deliveryDetailsContainer}>
+                    <View style={styles.rowAndCenter}>
+                        <Image
+                            source={Images.DELIVERY_CHARGE}
+                            style={styles.deliveryDetailsIcon}
+                        />
+                        <Text style={styles.deliveryDetailsText}>Giao hàng miễn phí</Text>
+                    </View>
+                    <View style={styles.rowAndCenter}>
+                        <Image
+                            source={Images.DELIVERY_TIME}
+                            style={styles.deliveryDetailsIcon}
+                        />
+                        <Text style={styles.deliveryDetailsText}>{time} min</Text>
+                    </View>
+                    <View style={styles.rowAndCenter}>
                         <Ionicons
                             name="location-outline"
                             size={15}
                             color={Colors.DEFAULT_YELLOW}
                         />
-                        <Text style={styles.timeAndDistanceText}>{distance}</Text>
+                        <Text style={styles.deliveryDetailsText}>{distance}</Text>
                     </View>
-                    <View style={styles.timeAndDistanceContainer}>
-                        <Ionicons
-                            name="ios-time-outline"
-                            size={15}
-                            color={Colors.DEFAULT_YELLOW}
-                        />
-                        <Text style={styles.timeAndDistanceText}>{time}</Text>
-                    </View>
+                    {/* <View style={styles.rowAndCenter}>
+                        <View style={styles.timeAndDistanceContainer}>
+                            <Ionicons
+                                name="location-outline"
+                                size={15}
+                                color={Colors.DEFAULT_YELLOW}
+                            />
+                            <Text style={styles.timeAndDistanceText}>{distance}</Text>
+                        </View>
+                        <View style={styles.timeAndDistanceContainer}>
+                            <Ionicons
+                                name="ios-time-outline"
+                                size={15}
+                                color={Colors.DEFAULT_YELLOW}
+                            />
+                            <Text style={styles.timeAndDistanceText}>{time}</Text>
+                        </View>
+                    </View> */}
                 </View>
             </View>
         </View>
@@ -57,14 +84,18 @@ const styles = StyleSheet.create({
         elevation: 1,
         borderRadius: 8,
         marginTop: 8,
-        color: Colors.DEFAULT_WHITE,
+        backgroundColor: Colors.DEFAULT_WHITE,
+
+        shadowColor: Colors.DEFAULT_GREY,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowOffset: { width: 3, height: 3 },
     },
     posterStyle: {
         width: Display.setWidth(20),
         height: Display.setWidth(20),
         borderRadius: 10,
         margin: 5,
-        backgroundColor: 'red',
     },
     labelContainer: {
         flex: 1,
@@ -86,6 +117,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    deliveryDetailsIcon: {
+        height: 16,
+        width: 16,
+    },
+    deliveryDetailsText: {
+        fontSize: 12,
+        lineHeight: 12 * 1.4,
+        marginLeft: 3,
+        fontFamily: Fonts.POPPINS_SEMI_BOLD,
+        color: Colors.DEFAULT_BLACK,
+    },
     ratingText: {
         fontSize: 10,
         lineHeight: 10 * 1.4,
@@ -98,6 +140,18 @@ const styles = StyleSheet.create({
         lineHeight: 10 * 1.4,
         fontFamily: Fonts.POPPINS_MEDIUM,
         color: Colors.DEFAULT_BLACK,
+    },
+    tagsText: {
+        fontSize: 11,
+        lineHeight: 11 * 1.4,
+        fontFamily: Fonts.POPPINS_MEDIUM,
+        color: Colors.DEFAULT_GREY,
+        marginBottom: 7,
+    },
+    deliveryDetailsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     timeAndDistanceContainer: {
         flexDirection: 'row',

@@ -10,6 +10,7 @@ import {
     SplashScreen,
     VertificationScreen,
     WelcomeScreen,
+    RestaurantScreen 
 } from '../screens';
 import { useDispatch, useSelector } from 'react-redux';
 import GeneralAction from '../actions/GeneralAction';
@@ -24,12 +25,15 @@ const Navigators = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(GeneralAction.appStart());
+        setTimeout(() => {
+            dispatch(GeneralAction.appStart());
+        }, 1500)
     }, []);
 
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false, gestureEnabled: true }}>
+            <Stack.Navigator
+                screenOptions={{ headerShown: false, gestureEnabled: true }}>
                 {isAppLoading ? (
                     <Stack.Screen name="Splash" component={SplashScreen} />
                 ) : !token || token === null || token === '' ? (
@@ -53,7 +57,10 @@ const Navigators = () => {
                         />
                     </>
                 ) : (
-                    <Stack.Screen name="Home" component={HomeScreen} />
+                    <>
+                        <Stack.Screen name="Home" component={HomeScreen} />
+                        <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+                    </>
                 )}
             </Stack.Navigator>
         </NavigationContainer>

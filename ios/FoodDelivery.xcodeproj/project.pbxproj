@@ -16,6 +16,7 @@
 		2663D71F247A405A802EE766 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D507790BB414BEABC3D36E6 /* Poppins-ExtraLight.ttf */; };
 		457686BF7F7B4B348CA131EA /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCBD13984DC5495A94C6FF57 /* Poppins-Thin.ttf */; };
 		5D70AE60F6EE414191B5EA7A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A03CA40997344784866B6E9E /* Poppins-Regular.ttf */; };
+		697EA99928F1343F006F0880 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 697EA99828F1343F006F0880 /* Settings.bundle */; };
 		6B902970B8F14B3388301B2A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 907633ACDFB04761B73A22E2 /* Poppins-Bold.ttf */; };
 		7E2CC99119F24521AB2DDACD /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD91F6FB81EC41D18ACE32B6 /* Poppins-Light.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -82,6 +83,7 @@
 		6920F48D28E568A900328F28 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../../../FullStackMERN/Ecommerce/mobile/node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		6920F48E28E568A900328F28 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../../../../FullStackMERN/Ecommerce/mobile/node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		6920F48F28E568A900328F28 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../../../../FullStackMERN/Ecommerce/mobile/node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		697EA99828F1343F006F0880 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		70CC649128E64B6398D2F3A8 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		71DA64353BBF4D729D467D28 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		7BFD1A23C42B436FADD328D3 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = ../src/assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				697EA99828F1343F006F0880 /* Settings.bundle */,
 				6920F47F28E5687400328F28 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* FoodDelivery */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -385,6 +388,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2552C0BA7A884A2890DF0129 /* Poppins-Black.ttf in Resources */,
 				6B902970B8F14B3388301B2A /* Poppins-Bold.ttf in Resources */,
+				697EA99928F1343F006F0880 /* Settings.bundle in Resources */,
 				9BDEF117E13442CE80760491 /* Poppins-ExtraBold.ttf in Resources */,
 				2663D71F247A405A802EE766 /* Poppins-ExtraLight.ttf in Resources */,
 				7E2CC99119F24521AB2DDACD /* Poppins-Light.ttf in Resources */,
@@ -410,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=/opt/homebrew/bin/node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		01A985F12988F07AFECBFCA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -632,18 +636,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98YXZDS39A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodDelivery/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Food Delivery";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.my.app.FoodDelivery;
 				PRODUCT_NAME = FoodDelivery;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -662,17 +670,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98YXZDS39A;
 				INFOPLIST_FILE = FoodDelivery/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Food Delivery";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.my.app.FoodDelivery;
 				PRODUCT_NAME = FoodDelivery;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

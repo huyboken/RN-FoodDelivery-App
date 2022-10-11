@@ -151,6 +151,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 2,
+
+        shadowColor: Colors.DEFAULT_GREY,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowOffset: { width: 3, height: 3 },
     },
     gettingStartedButtonText: {
         fontSize: 20,

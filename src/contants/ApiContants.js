@@ -8,7 +8,7 @@ const COUNTRY_FLAG = {
 
     // BASE_URL: `http://172.22.0.193:3000/FlagIcon`,
     BASE_URL: `http://localhost:3000/FlagIcon`,
-    // BASE_URL: `http://192.168.0.101:3000/FlagIcon`,
+    // BASE_URL: `http://192.168.0.104:3000/FlagIcon`,
 };
 
 const STATIC_IMAGE = {

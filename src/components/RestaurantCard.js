@@ -12,7 +12,7 @@ const RestaurantCard = ({
     name,
     tags,
     distance,
-    time,
+    time, 
 }) => {
     return (
         <TouchableOpacity
@@ -24,7 +24,7 @@ const RestaurantCard = ({
                 style={styles.posterStyle}
             />
             <Text style={styles.titleText}>{name}</Text>
-            <Text style={styles.tagText}>{tags?.join(' • ')}</Text>
+            <Text numberOfLines={1} style={styles.tagText}>{tags?.join(' • ')}</Text>
             <View style={styles.footerContainer}>
                 <View style={styles.rowAndCenter}>
                     <FontAwesome name="star" size={14} color={Colors.DEFAULT_YELLOW} />
@@ -60,17 +60,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        color: Colors.DEFAULT_WHITE,
+        backgroundColor: Colors.DEFAULT_WHITE,
         borderRadius: 10,
         marginBottom: 5,
         elevation: 3,
+
+        shadowColor: Colors.DEFAULT_GREY,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowOffset: { width: 3, height: 3 },
     },
     posterStyle: {
         width: 1920 * 0.15,
         height: 1080 * 0.15,
         borderRadius: 10,
-        margin: 5,
-        backgroundColor: 'red',
+        margin: 5
     },
     titleText: {
         fontSize: 15,
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         fontFamily: Fonts.POPPINS_MEDIUM,
         marginBottom: 5,
-        width: 1920 * 0.15,
+        width: 1920 * 0.15
     },
     footerContainer: {
         flexDirection: 'row',

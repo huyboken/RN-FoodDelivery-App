@@ -41,7 +41,7 @@
   },
   "projectConfig": {
     "backendApiBaseUrl1": "http://172.22.0.193:3000",
-    "backendApiBaseUrl2": "http://192.168.0.101:3000",
+    "backendApiBaseUrl2": "http://192.168.0.104:3000",
     "backendApiBaseUrl": "http://localhost:3000"
   }
 }
